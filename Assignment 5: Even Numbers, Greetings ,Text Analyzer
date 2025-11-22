@@ -1,0 +1,51 @@
+# Task 1
+# Generator function to yield the first n even numbers
+def even_numbers(n):
+    num = 2
+    for _ in range(n):
+        yield num
+        num += 2
+
+
+# Decorator to greet before executing a function
+def greet(func):
+    def wrapper(*args, **kwargs):
+        print("Hello!")
+        return func(*args, **kwargs)
+    return wrapper
+
+
+@greet
+def say_name(name):
+    print(f"My name is {name}")
+
+
+# Example usage:
+# Print first 5 even numbers
+for x in even_numbers(5):
+    print(x)
+
+say_name("Nethra")
+
+
+
+#task 2
+
+
+import re
+
+# 1. Find all email addresses
+def find_emails(text):
+    pattern = r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+    return re.findall(pattern, text)
+
+
+# 2. Find all phone numbers
+def find_phone_numbers(text):
+    pattern = r"\(\d{3}\)\s?\d{3}-\d{4}|\d{3}-\d{3}-\d{4}"
+    return re.findall(pattern, text)
+
+
+# 3. Replace a word in a text
+def replace_word(text, old, new):
+    return text.replace(old, new)
